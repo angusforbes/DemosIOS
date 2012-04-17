@@ -1,0 +1,90 @@
+IOS
+
+Make a new Empty IOS Application by choosing NewProject in Xcode
+
+
+1. *Copy* over new versions of AppDelegate.mm and .h and ViewController.mm and .h from OpenGLRenderLibrary/IOS
+     This is a new version of the file that you will edit so that it references your project files.
+
+     AppDelegate.mm : 
+          edit the method "- (void*) GetRenderer()" so that it returns your Renderer.
+
+          you will need to include your Renderers' .hpp file as well.
+
+     ViewController.mm : 
+          edit it this as you see fit. The only important thing to make sure and keep is viewDidLoad method. You can add things to it if needed, but make sure to keep these lines:
+
+          self.view = [[IOSGLViewalloc] initWithFrame: screenBounds];  
+          [superviewDidLoad];
+          Renderer::GetRenderer()->isReady = true;
+
+
+2. *Point* to all the existing files in OpenGLRenderLibrary/IOS/IOS/ and OpenGLRenderLibrary/Classes/
+     The easiest way to do this is to drag each of those folder from the finder into Xcode's project view. Make sure that you have *unselected* the "Copy items into destination group's folder (if needed)." That is we want to point to those exact files so that we can make changes to the library and have it appear here, and vice versa. Make sure that you have *selected* "Create groups for any added folders." I don't know why the folder references don't work, but they don't. Finally click "add to Target" for your project.
+
+     This means you will mess up the global files for the entire library, so only make changes to library if necessary and if it benefits the entire code base.
+
+     You will now have the group IOS with IOS specific classes and the group Classes with three sub groups, Geometry, Math, and Utils.
+
+3. Link to the following frameworks:
+
+          (these two should already be there:)
+     UIKit
+     Foundation
+    
+          (add these ones:)
+     AudioToolbox
+     AVFoundation
+     CoreMotion
+     CoreVideo
+     CoreMedia
+     CoreGraphics
+     OpenGLES     
+     QuartzCore
+
+     
+4. Make your own class and header that inherits from Renderer.mm. (This is the class that you refer to in your AppDelegate). 
+
+You can grab one of the test Renderers from the OpenGLRenderLibrary/IOS/Renderers and modify it, or create a brand new one.
+
+A minimal header will look something like this:
+
+#include "Renderer.hpp" 
+
+#ifndef MyDemo
+#define MyDemo
+
+class MyDemo : public Renderer {
+  
+public:
+
+   void Initialize();
+   void Render();
+};
+
+#endif 
+
+A minimal class will look something like this:
+
+#include "MyDemo.hpp"
+
+void MyDemo::Initialize() {    
+  SetCamera(newCamera(ivec4(0, 0, width, height)));
+}
+
+void MyDemo::Render() { 
+  
+  BindDefaultFrameBuffer();
+  
+  bool cameraMoved = false;
+  if (camera->IsTransformed()) {
+    camera->Transform();
+    cameraMoved = true;
+  }
+  
+  FontAtlas* font = GetFont("Univers60");
+  font->Bind(); {
+    Text(100, 100, "Hello World", vec4(1.0,0.0,0.0,1.0) );
+  } font->Unbind();
+}
+
