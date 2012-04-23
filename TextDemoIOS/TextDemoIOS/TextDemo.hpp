@@ -7,8 +7,11 @@ class TextDemo : public Renderer {
   
 public:
   //TextDemo();
-   void Initialize();
-   void Render();
+  void Initialize();
+  void Draw();
+
+private:
+
 };
 
 #endif

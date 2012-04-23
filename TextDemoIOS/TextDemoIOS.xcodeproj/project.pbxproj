@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		929CCAE915422306004B2459 /* TextRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 929CCAE715422306004B2459 /* TextRect.cpp */; };
 		92CD0AB1153E018F00833CFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CD0AB0153E018F00833CFA /* UIKit.framework */; };
 		92CD0AB3153E018F00833CFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CD0AB2153E018F00833CFA /* Foundation.framework */; };
 		92CD0AB5153E018F00833CFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CD0AB4153E018F00833CFA /* CoreGraphics.framework */; };
@@ -56,13 +57,11 @@
 		92CD0B4A153E039500833CFA /* Univers128.png in Resources */ = {isa = PBXBuildFile; fileRef = 92CD0B3E153E039500833CFA /* Univers128.png */; };
 		92CD0B4B153E039500833CFA /* Univers36.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92CD0B3F153E039500833CFA /* Univers36.fnt */; };
 		92CD0B4C153E039500833CFA /* Univers36.png in Resources */ = {isa = PBXBuildFile; fileRef = 92CD0B40153E039500833CFA /* Univers36.png */; };
-		92CD0B4D153E03C200833CFA /* SingleTexture.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 92CD0B39153E039500833CFA /* SingleTexture.fsh */; };
-		92CD0B4E153E03C200833CFA /* SingleTexture.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 92CD0B3A153E039500833CFA /* SingleTexture.vsh */; };
-		92CD0B4F153E03C200833CFA /* TextureAtlas.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 92CD0B3B153E039500833CFA /* TextureAtlas.fsh */; };
-		92CD0B50153E03C200833CFA /* TextureAtlas.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 92CD0B3C153E039500833CFA /* TextureAtlas.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		929CCAE715422306004B2459 /* TextRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextRect.cpp; sourceTree = "<group>"; };
+		929CCAE815422306004B2459 /* TextRect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextRect.hpp; sourceTree = "<group>"; };
 		92CD0AAC153E018F00833CFA /* TextDemoIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextDemoIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CD0AB0153E018F00833CFA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		92CD0AB2153E018F00833CFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -143,10 +142,6 @@
 		92CD0B36153E039500833CFA /* CMUSerifUprightItalic128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CMUSerifUprightItalic128.png; sourceTree = "<group>"; };
 		92CD0B37153E039500833CFA /* CMUSerifUprightItalic60.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMUSerifUprightItalic60.fnt; sourceTree = "<group>"; };
 		92CD0B38153E039500833CFA /* CMUSerifUprightItalic60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CMUSerifUprightItalic60.png; sourceTree = "<group>"; };
-		92CD0B39153E039500833CFA /* SingleTexture.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SingleTexture.fsh; sourceTree = "<group>"; };
-		92CD0B3A153E039500833CFA /* SingleTexture.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SingleTexture.vsh; sourceTree = "<group>"; };
-		92CD0B3B153E039500833CFA /* TextureAtlas.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = TextureAtlas.fsh; sourceTree = "<group>"; };
-		92CD0B3C153E039500833CFA /* TextureAtlas.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = TextureAtlas.vsh; sourceTree = "<group>"; };
 		92CD0B3D153E039500833CFA /* Univers128.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Univers128.fnt; sourceTree = "<group>"; };
 		92CD0B3E153E039500833CFA /* Univers128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Univers128.png; sourceTree = "<group>"; };
 		92CD0B3F153E039500833CFA /* Univers36.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Univers36.fnt; sourceTree = "<group>"; };
@@ -250,6 +245,8 @@
 		92CD0ACE153E024300833CFA /* Geometry */ = {
 			isa = PBXGroup;
 			children = (
+				929CCAE715422306004B2459 /* TextRect.cpp */,
+				929CCAE815422306004B2459 /* TextRect.hpp */,
 				92CD0ACF153E024300833CFA /* Camera.cpp */,
 				92CD0AD0153E024300833CFA /* Camera.hpp */,
 				92CD0AD1153E024300833CFA /* Circle.cpp */,
@@ -338,10 +335,6 @@
 				92CD0B36153E039500833CFA /* CMUSerifUprightItalic128.png */,
 				92CD0B37153E039500833CFA /* CMUSerifUprightItalic60.fnt */,
 				92CD0B38153E039500833CFA /* CMUSerifUprightItalic60.png */,
-				92CD0B39153E039500833CFA /* SingleTexture.fsh */,
-				92CD0B3A153E039500833CFA /* SingleTexture.vsh */,
-				92CD0B3B153E039500833CFA /* TextureAtlas.fsh */,
-				92CD0B3C153E039500833CFA /* TextureAtlas.vsh */,
 				92CD0B3D153E039500833CFA /* Univers128.fnt */,
 				92CD0B3E153E039500833CFA /* Univers128.png */,
 				92CD0B3F153E039500833CFA /* Univers36.fnt */,
@@ -401,10 +394,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92CD0B4D153E03C200833CFA /* SingleTexture.fsh in Resources */,
-				92CD0B4E153E03C200833CFA /* SingleTexture.vsh in Resources */,
-				92CD0B4F153E03C200833CFA /* TextureAtlas.fsh in Resources */,
-				92CD0B50153E03C200833CFA /* TextureAtlas.vsh in Resources */,
 				92CD0ABB153E018F00833CFA /* InfoPlist.strings in Resources */,
 				92CD0B41153E039500833CFA /* CMUSerifUprightItalic128.fnt in Resources */,
 				92CD0B42153E039500833CFA /* CMUSerifUprightItalic128.png in Resources */,
@@ -454,6 +443,7 @@
 				92CD0B21153E024C00833CFA /* ResourceHandler.mm in Sources */,
 				92CD0B22153E024C00833CFA /* VideoManager.mm in Sources */,
 				92CD0B25153E026400833CFA /* TextDemo.mm in Sources */,
+				929CCAE915422306004B2459 /* TextRect.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
