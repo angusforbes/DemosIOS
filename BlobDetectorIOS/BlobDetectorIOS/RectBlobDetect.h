@@ -5,9 +5,10 @@
 
 #include "Blob.h"
 #include "FBO.hpp"
+#include "ContainerBlobInfo.h"
 
-#ifndef VirtualDatasetsIOS_RectBlobDetect_h
-#define VirtualDatasetsIOS_RectBlobDetect_h
+#ifndef RectBlobDetect_h
+#define RectBlobDetect_h
 
 
 class RectBlobDetect : public Rectangle { 
@@ -31,8 +32,17 @@ public:
 
   void HandleTouchBegan(ivec2 mouse); 
   void HandleTouchMoved(ivec2 prevMouse, ivec2 mouse); 
+  
+  void AttachController(ContainerBlobInfo* c);
+  ContainerBlobInfo* infoPanel;  
+  
+
 private:
   
+  ivec2 pixelPt;
+  bool pixelSelected;
+  void HandleSelectedPixel();
+  void ChooseSelectedPixel(ivec2 mouse);
   int minRed;
   int maxRed;
   int minGreen;
@@ -57,8 +67,7 @@ private:
   bool CheckIfLegalBlob(Blob* b);
   mat4 CalculateCircleMV(Blob* b);
   mat4 CalculateRectMV(Blob* b);
-  float AverageLuma(Texture* t, int skip);
-  float RgbaToLuma(ivec4 rgba);
+  int AverageLuma(Texture* t, int skip);
   mat4 ROT_MV;
 };
 

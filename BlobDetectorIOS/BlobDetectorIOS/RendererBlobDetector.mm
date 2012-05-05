@@ -7,16 +7,57 @@
 #include "TextRect.hpp"
 #include "Cube.hpp"
 #include "RectBlobDetect.h"
+#include "ContainerBlobInfo.h"
 
 float cameraZ;
 
 void RendererBlobDetector::Initialize() {    
+  
+  
+  /*
+  Rectangle* r = new Rectangle();
+  r->SetColor(1,0,0,1);
+  r->SetTranslate(0.0, 0.3);
+  
+  r->SetSize(1.0, 0.7);
+  r->IsSelectable = true;  
+  AddGeom(r);
+ */
+  
+  
+  
+  ContainerBlobInfo* info = new ContainerBlobInfo();
+  info->SetColor(new Color(vec4(0.0,0.0,0.0,1.0)));
+  info->SetScale(1.0, 0.3);
+  AddGeom(info);
+  
   RectBlobDetect* rbd = new RectBlobDetect();
-  rbd->SetTranslate(0.5,0.5);
-  rbd->SetScaleAnchor(0.5, 0.5);
-  rbd->SetScale(1,1);
+  rbd->SetTranslate(0.0,0.3);
+  //rbd->SetScaleAnchor(0.5, 0.5);
+  rbd->SetScale(1,.7);
   rbd->IsSelectable = true;
   AddGeom(rbd);
+
+  rbd->AttachController(info);
+  
+  
+  
+  /*
+  int numSliders = 3;
+  
+  float sliderInc = (1.0/numSliders);
+  
+  for (int i = 0; i < numSliders; i++) {
+  Rectangle* doubleSlider1 = new Rectangle();
+  doubleSlider1->SetTranslate( sliderInc * i, 0);
+  doubleSlider1->SetColor(0,0,0.3*i,1);
+  doubleSlider1->SetSize(sliderInc, 1.0);
+    doubleSlider1->IsSelectable = true;  
+  r2->AddGeom(doubleSlider1);
+  
+  }
+  */
+  
 }
 
 
@@ -33,7 +74,7 @@ void RendererBlobDetector::HandleTouchBegan(ivec2 mouse) {
   mouse.Print("mouse = ");
   um.Print("adjusted mouse = ");
   
-  vector<Geom*> gcwp = GetGeomsContainingWindowPoint(um);
+  vector<Geom*> gcwp = GetGeomsContainingWindowPoint(mouse); //may need to use (um) in real device
   
   printf("we found %lu geoms containing the mouse touch\n", gcwp.size());
   if (gcwp.size() > 0) {
@@ -47,6 +88,11 @@ void RendererBlobDetector::HandleTouchBegan(ivec2 mouse) {
   }
 }
 
+void RendererBlobDetector::HandleTouchEnded(ivec2 mouse) {
+  if (selectedGeom != NULL) {
+    selectedGeom->HandleTouchEnded(mouse);
+  }
+} 
 void RendererBlobDetector::HandleTouchMoved(ivec2 prevMouse, ivec2 mouse) {
   if (selectedGeom != NULL) {
     selectedGeom->HandleTouchMoved(prevMouse, mouse);

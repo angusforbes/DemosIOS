@@ -8,7 +8,7 @@
 
 #define PIXEL_SKIP 15
 #define IS_CAMERA 0
-#define USE_RGB_THRESHOLDS 0
+#define USE_RGB_THRESHOLDS 1
 
 
 
@@ -29,7 +29,6 @@ RectBlobDetect::RectBlobDetect() {
   minBlobSize = 64;
   maxBlobWidth = 50;
   maxBlobHeight = 50;
-  
   
   useTexCoords = true;
   
@@ -128,13 +127,35 @@ void RectBlobDetect::Draw() {
   
   
   rh->NextVideoFrameLock();
+ 
+  BlobDetect(videoTexture);
+  
+  HandleSelectedPixel();
+
+  
+  if (infoPanel->isUpdated) {
+    minRed = infoPanel->GetRed().x;
+    maxRed = infoPanel->GetRed().y;
+    minGreen = infoPanel->GetGreen().x;
+    maxGreen = infoPanel->GetGreen().y;
+    minBlue = infoPanel->GetBlue().x;
+    maxBlue = infoPanel->GetBlue().y;
+    
+    printf("Was updated... minRed/maxRed = %d/%d\n", minRed, maxRed);
+    printf("Was updated... minG/maxG = %d/%d\n", minGreen, maxGreen);
+    printf("Was updated... minB/maxB = %d/%d\n", minBlue, maxBlue);
+    
+    infoPanel->isUpdated = false;
+  }
+  
+  
+  
    float averageLuma = AverageLuma(videoTexture, PIXEL_SKIP);
-    printf("? averageLuma = %f\n", averageLuma);
+   // printf("? averageLuma = %f\n", averageLuma);
   
   //  printf("in Draw : drawing...\n");
   
   
-  BlobDetect(videoTexture);
   
 //  printf("out Draw : released...\n");
   
@@ -292,15 +313,10 @@ Blob* RectBlobDetect::MergeBlobs() { //vector<Blob*> blobs) {
 
 
 
-float RectBlobDetect::RgbaToLuma(ivec4 rgba) {
-  return ((float)rgba.x * 0.2126) +  ((float)rgba.y * 0.7152) + ((float)rgba.z * 0.0722) ;
-}
-
 bool RectBlobDetect::PixelWithinLumaThresholds(ivec4 pixel) {
+  int luma = Color::Luma(pixel);
   
-  float luma = RgbaToLuma(pixel);
-  
-  if (luma >= minLuma && luma < maxLuma) {
+  if (luma >= minLuma && luma <= maxLuma) {
     return true;
   }
   
@@ -310,19 +326,18 @@ bool RectBlobDetect::PixelWithinLumaThresholds(ivec4 pixel) {
 
 bool RectBlobDetect::PixelWithinRGBThresholds(ivec4 pixel) {
   
-  if (pixel.x >= minRed && pixel.x < maxRed &&
-      pixel.y >= minGreen && pixel.y < maxGreen &&
-      pixel.z >= minBlue && pixel.z < maxBlue ) {
+  if (pixel.x >= minRed && pixel.x <= maxRed &&
+      pixel.y >= minGreen && pixel.y <= maxGreen &&
+      pixel.z >= minBlue && pixel.z <= maxBlue ) {
     return true;
   }
-  
   
   return false;
 }
 
 void RectBlobDetect::BlobDetect(Texture *t) {
   
-  //filterTexture->SetRectAt(0,0,filterTexture->width, filterTexture->height, ivec4(0,0,0,255));
+  filterTexture->SetRectAt(0,0,filterTexture->width, filterTexture->height, ivec4(0,0,0,255));
   
   ivec4 pixel;
   blobs.clear();
@@ -345,7 +360,7 @@ void RectBlobDetect::BlobDetect(Texture *t) {
         checkBlobs.clear();
         
         int rectSize = max(1,PIXEL_SKIP/2);
-       // filterTexture->SetRectAt(x-rectSize,y-rectSize,rectSize*2,rectSize*2, ivec4(0,255,0,128));
+       filterTexture->SetRectAt(x-rectSize,y-rectSize,rectSize*2,rectSize*2, ivec4(0,255,0,128));
         
         for(blobIter = blobs.begin(); blobIter != blobs.end(); ++blobIter) {
           
@@ -357,7 +372,7 @@ void RectBlobDetect::BlobDetect(Texture *t) {
         
         //new blob?
         if (checkBlobs.size() == 0) {
-          fbo->texture->SetPixelAt(x,y,ivec4(0,255,0,255)); 
+          //fbo->texture->SetPixelAt(x,y,ivec4(0,255,0,255)); 
           //  videoTexture->SetPixelAt(x,y,ivec4(0,255,0,255)); 
           
           //printf("\t new blob at %d %d\n", x, y);
@@ -367,7 +382,7 @@ void RectBlobDetect::BlobDetect(Texture *t) {
         
         //merge these blobs
         else if (checkBlobs.size() > 1) {
-          fbo->texture->SetPixelAt(x,y,ivec4(255,0,0,255)); 
+          //fbo->texture->SetPixelAt(x,y,ivec4(255,0,0,255)); 
           // videoTexture->SetPixelAt(x,y,ivec4(255,0,0,255)); 
           newBlobs.push_back(MergeBlobs());
         }
@@ -399,100 +414,76 @@ void RectBlobDetect::BlobDetect(Texture *t) {
   
 }
 
-float RectBlobDetect::AverageLuma(Texture* t, int sampleSkip) {
+int RectBlobDetect::AverageLuma(Texture* t, int sampleSkip) {
   
   float luma = 0;
   int sampleTotal = 0;
   
   for (int y = 0; y < t->height; y+=sampleSkip) {
     for (int x = 0; x < t->width; x+=sampleSkip) {
-      luma += RgbaToLuma(t->GetPixelAt(x,y)); 
+      luma += Color::Luma(t->GetPixelAt(x,y)); 
       sampleTotal++;
     }
   }
   
-  return ((float)luma / (float)(sampleTotal))/255.0;
+  return (int)((float)luma / (float)(sampleTotal));
 }
 
 void RectBlobDetect::HandleTouchBegan(ivec2 mouse) {
-  mouse.Print("in RectBlobDetect::HandleTouchBegan, mouse pt = ");
- 
-  vec3 objPt = mat4::Unproject(mouse.x, mouse.y, 0, ROT_MV, root->projection, root->viewport);
-  objPt.Print("RectBlobDetect : mouse in 3D Coords = ");
+  ChooseSelectedPixel(mouse);
+}
+
+void RectBlobDetect::HandleSelectedPixel() {
+  if (pixelSelected == false) {
+    return;
+  }
   
-  ivec2 pixelPt = ivec2(objPt.x * videoTexture->width, objPt.y * videoTexture->height);
   pixelPt.Print("Pixel coords = ");
   ivec4 pixel = videoTexture->GetPixelAt(pixelPt.x, videoTexture->height - pixelPt.y);
   pixel.Print("PIXEL is ");
   
-  int inc = 5;
-  minRed = pixel.x - inc;
-  maxRed = pixel.x + inc;
-  minGreen = pixel.y - inc;
-  maxGreen = pixel.y + inc;
-  minBlue = pixel.z - inc;
-  maxBlue = pixel.z + inc;
- 
+  int inc = 20;
+  minRed = max(0,pixel.x - inc);
+  maxRed = min(255,pixel.x + inc);
+  minGreen = max(0,pixel.y - inc);
+  maxGreen = min(255,pixel.y + inc);
+  minBlue = max(0,pixel.z - inc);
+  maxBlue = min(255,pixel.z + inc);
   
-  float luma = RgbaToLuma(pixel);
-  minLuma = luma - inc;
-  maxLuma = luma + inc;
+  
+  int luma = Color::Luma(pixel);
+  minLuma = max(0,luma - inc);
+  maxLuma = min(255,luma + inc);
   
   printf("min/max rgba:%d/%d %d/%d %d/%d  luma:%d/%d\n", minRed, maxRed, minGreen, maxGreen, minBlue, maxBlue, minLuma, maxLuma);
   
-  filterTexture->SetRectAt(pixelPt.x, videoTexture->height - pixelPt.y, 100,100, pixel);
+  infoPanel->SetPixel(pixel);
+  infoPanel->SetRed(minRed, maxRed);
+  infoPanel->SetGreen(minGreen, maxGreen);
+  infoPanel->SetBlue(minBlue, maxBlue);
+  
+  pixelSelected = false;
+  //filterTexture->SetRectAt(pixelPt.x, videoTexture->height - pixelPt.y, 100,100, pixel);
 }
 
+
+void RectBlobDetect::ChooseSelectedPixel(ivec2 mouse) {
+  
+  vec3 objPt = mat4::Unproject(mouse.x, mouse.y, 0, ROT_MV, root->projection, root->viewport);
+  objPt.Print("RectBlobDetect : mouse in 3D Coords = ");
+  
+  pixelPt = ivec2(objPt.x * videoTexture->width, objPt.y * videoTexture->height);
+  pixelSelected = true;
+}
 
 void RectBlobDetect::HandleTouchMoved(ivec2 prevMouse, ivec2 mouse) {
-  mouse.Print("in RectBlobDetect::HandleTouchMoved, mouse pt = ");
   
-  int inc = 5;
-  if (mouse.x > prevMouse.x) {
-    minRed -= inc;
-    maxRed += inc;
-    minGreen -= inc;
-    maxGreen += inc;
-    minBlue -= inc;
-    maxBlue += inc;
-    minLuma -= inc;
-    maxLuma += inc;
-  } else {
-    minRed += inc;
-    maxRed -= inc;
-    minGreen += inc;
-    maxGreen -= inc;
-    minBlue += inc;
-    maxBlue -= inc;
-    minLuma += inc;
-    maxLuma -= inc;
-  }
- /* 
-  minRed = max(0,minRed);
-  maxRed = min(255,maxRed);
-  minGreen = max(0,minGreen);
-  maxGreen = min(255,maxGreen);
-  minBlue = max(0,minBlue);
-  maxBlue = min(255,maxBlue);
-  
-  if (minRed > maxRed) {
-    int temp = minRed;
-    minRed = maxRed;
-    maxRed = temp;
-  }
-  if (minGreen > maxRed) {
-    int temp = minGreen;
-    minGreen = maxGreen;
-    maxGreen = temp;
-  }
-  if (minBlue > maxRed) {
-    int temp = minBlue;
-    minBlue = maxBlue;
-    maxBlue = temp;
-  }
-  */
-  printf("min/max rgba:%d/%d %d/%d %d/%d  luma:%d/%d\n", minRed, maxRed, minGreen, maxGreen, minBlue, maxBlue, minLuma, maxLuma);
+  ChooseSelectedPixel(mouse);
+
 }
 
+void RectBlobDetect::AttachController(ContainerBlobInfo* _c) {
+  infoPanel = _c;
+}
 
 

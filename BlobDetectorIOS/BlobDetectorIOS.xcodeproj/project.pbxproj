@@ -57,6 +57,10 @@
 		925BB6DE155330FC0011F9D2 /* AlloPano5Mbps.mov in Resources */ = {isa = PBXBuildFile; fileRef = 925BB6DB155330FC0011F9D2 /* AlloPano5Mbps.mov */; };
 		925BB6DF155330FC0011F9D2 /* blobTest1.png in Resources */ = {isa = PBXBuildFile; fileRef = 925BB6DC155330FC0011F9D2 /* blobTest1.png */; };
 		925BB6E0155330FC0011F9D2 /* testvid.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 925BB6DD155330FC0011F9D2 /* testvid.m4v */; };
+		925BB6E615533A110011F9D2 /* DoubleSlider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 925BB6E515533A110011F9D2 /* DoubleSlider.mm */; };
+		925BB6EA15533CE20011F9D2 /* Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 925BB6E815533CE20011F9D2 /* Container.cpp */; };
+		925BB6ED15533D540011F9D2 /* ContainerBlobInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 925BB6EC15533D540011F9D2 /* ContainerBlobInfo.mm */; };
+		92AA4F4F155497900049CED2 /* Color.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92AA4F4E155497900049CED2 /* Color.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +155,14 @@
 		925BB6DB155330FC0011F9D2 /* AlloPano5Mbps.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = AlloPano5Mbps.mov; sourceTree = "<group>"; };
 		925BB6DC155330FC0011F9D2 /* blobTest1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blobTest1.png; sourceTree = "<group>"; };
 		925BB6DD155330FC0011F9D2 /* testvid.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = testvid.m4v; sourceTree = "<group>"; };
+		925BB6E515533A110011F9D2 /* DoubleSlider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DoubleSlider.mm; sourceTree = "<group>"; };
+		925BB6E715533A230011F9D2 /* DoubleSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleSlider.h; sourceTree = "<group>"; };
+		925BB6E815533CE20011F9D2 /* Container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Container.cpp; sourceTree = "<group>"; };
+		925BB6E915533CE20011F9D2 /* Container.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Container.hpp; sourceTree = "<group>"; };
+		925BB6EB15533D540011F9D2 /* ContainerBlobInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerBlobInfo.h; sourceTree = "<group>"; };
+		925BB6EC15533D540011F9D2 /* ContainerBlobInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ContainerBlobInfo.mm; sourceTree = "<group>"; };
+		92AA4F4D155497900049CED2 /* Color.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Color.hpp; sourceTree = "<group>"; };
+		92AA4F4E155497900049CED2 /* Color.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Color.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +232,10 @@
 				925BB6D5155330CF0011F9D2 /* RendererBlobDetector.mm */,
 				925BB6D6155330CF0011F9D2 /* RectBlobDetect.h */,
 				925BB6D7155330CF0011F9D2 /* RectBlobDetect.mm */,
+				925BB6E515533A110011F9D2 /* DoubleSlider.mm */,
+				925BB6E715533A230011F9D2 /* DoubleSlider.h */,
+				925BB6EB15533D540011F9D2 /* ContainerBlobInfo.h */,
+				925BB6EC15533D540011F9D2 /* ContainerBlobInfo.mm */,
 				925BB67715532FE20011F9D2 /* Geometry */,
 				925BB69615532FE20011F9D2 /* Math */,
 				925BB69B15532FE20011F9D2 /* Utils */,
@@ -268,6 +284,8 @@
 		925BB67715532FE20011F9D2 /* Geometry */ = {
 			isa = PBXGroup;
 			children = (
+				925BB6E815533CE20011F9D2 /* Container.cpp */,
+				925BB6E915533CE20011F9D2 /* Container.hpp */,
 				925BB67815532FE20011F9D2 /* Camera.cpp */,
 				925BB67915532FE20011F9D2 /* Camera.hpp */,
 				925BB67A15532FE20011F9D2 /* Circle.cpp */,
@@ -318,6 +336,8 @@
 		925BB69B15532FE20011F9D2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				92AA4F4D155497900049CED2 /* Color.hpp */,
+				92AA4F4E155497900049CED2 /* Color.mm */,
 				925BB69C15532FE20011F9D2 /* FBO.hpp */,
 				925BB69D15532FE20011F9D2 /* FBO.mm */,
 				925BB69E15532FE20011F9D2 /* FontAtlas.hpp */,
@@ -440,6 +460,10 @@
 				925BB6D8155330CF0011F9D2 /* Blob.cpp in Sources */,
 				925BB6D9155330CF0011F9D2 /* RendererBlobDetector.mm in Sources */,
 				925BB6DA155330CF0011F9D2 /* RectBlobDetect.mm in Sources */,
+				925BB6E615533A110011F9D2 /* DoubleSlider.mm in Sources */,
+				925BB6EA15533CE20011F9D2 /* Container.cpp in Sources */,
+				925BB6ED15533D540011F9D2 /* ContainerBlobInfo.mm in Sources */,
+				92AA4F4F155497900049CED2 /* Color.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +567,7 @@
 				925BB65C15532F410011F9D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
