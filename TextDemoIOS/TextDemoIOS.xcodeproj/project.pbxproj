@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		929CCAE915422306004B2459 /* TextRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 929CCAE715422306004B2459 /* TextRect.cpp */; };
+		92AA4F56155500710049CED2 /* Color.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92AA4F55155500710049CED2 /* Color.mm */; };
+		92AA4F5A1555009B0049CED2 /* Latch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92AA4F591555009B0049CED2 /* Latch.mm */; };
+		92AA4F5D155500BC0049CED2 /* CameraManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92AA4F5C155500BC0049CED2 /* CameraManager.mm */; };
 		92CD0AB1153E018F00833CFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CD0AB0153E018F00833CFA /* UIKit.framework */; };
 		92CD0AB3153E018F00833CFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CD0AB2153E018F00833CFA /* Foundation.framework */; };
 		92CD0AB5153E018F00833CFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CD0AB4153E018F00833CFA /* CoreGraphics.framework */; };
@@ -62,6 +65,12 @@
 /* Begin PBXFileReference section */
 		929CCAE715422306004B2459 /* TextRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextRect.cpp; sourceTree = "<group>"; };
 		929CCAE815422306004B2459 /* TextRect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextRect.hpp; sourceTree = "<group>"; };
+		92AA4F54155500710049CED2 /* Color.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Color.hpp; sourceTree = "<group>"; };
+		92AA4F55155500710049CED2 /* Color.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Color.mm; sourceTree = "<group>"; };
+		92AA4F581555009B0049CED2 /* Latch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Latch.hpp; sourceTree = "<group>"; };
+		92AA4F591555009B0049CED2 /* Latch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Latch.mm; sourceTree = "<group>"; };
+		92AA4F5B155500BC0049CED2 /* CameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraManager.h; sourceTree = "<group>"; };
+		92AA4F5C155500BC0049CED2 /* CameraManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraManager.mm; sourceTree = "<group>"; };
 		92CD0AAC153E018F00833CFA /* TextDemoIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextDemoIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CD0AB0153E018F00833CFA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		92CD0AB2153E018F00833CFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -291,6 +300,10 @@
 		92CD0AEE153E024300833CFA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				92AA4F581555009B0049CED2 /* Latch.hpp */,
+				92AA4F591555009B0049CED2 /* Latch.mm */,
+				92AA4F54155500710049CED2 /* Color.hpp */,
+				92AA4F55155500710049CED2 /* Color.mm */,
 				92CD0AEF153E024300833CFA /* FBO.hpp */,
 				92CD0AF0153E024300833CFA /* FBO.mm */,
 				92CD0AF1153E024300833CFA /* FontAtlas.hpp */,
@@ -312,6 +325,8 @@
 		92CD0B12153E024C00833CFA /* IOS */ = {
 			isa = PBXGroup;
 			children = (
+				92AA4F5B155500BC0049CED2 /* CameraManager.h */,
+				92AA4F5C155500BC0049CED2 /* CameraManager.mm */,
 				92CD0B13153E024C00833CFA /* AudioManager.h */,
 				92CD0B14153E024C00833CFA /* AudioManager.mm */,
 				92CD0B15153E024C00833CFA /* Defines.h */,
@@ -444,6 +459,9 @@
 				92CD0B22153E024C00833CFA /* VideoManager.mm in Sources */,
 				92CD0B25153E026400833CFA /* TextDemo.mm in Sources */,
 				929CCAE915422306004B2459 /* TextRect.cpp in Sources */,
+				92AA4F56155500710049CED2 /* Color.mm in Sources */,
+				92AA4F5A1555009B0049CED2 /* Latch.mm in Sources */,
+				92AA4F5D155500BC0049CED2 /* CameraManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

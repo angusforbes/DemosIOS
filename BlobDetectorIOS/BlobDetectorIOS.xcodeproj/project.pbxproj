@@ -61,6 +61,10 @@
 		925BB6EA15533CE20011F9D2 /* Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 925BB6E815533CE20011F9D2 /* Container.cpp */; };
 		925BB6ED15533D540011F9D2 /* ContainerBlobInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 925BB6EC15533D540011F9D2 /* ContainerBlobInfo.mm */; };
 		92AA4F4F155497900049CED2 /* Color.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92AA4F4E155497900049CED2 /* Color.mm */; };
+		92AA4F60155503BA0049CED2 /* Helvetica36.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AA4F5E155503B80049CED2 /* Helvetica36.fnt */; };
+		92AA4F61155503BA0049CED2 /* Helvetica36.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AA4F5F155503B90049CED2 /* Helvetica36.png */; };
+		92AA4F64155506E70049CED2 /* Univers36.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AA4F62155506E50049CED2 /* Univers36.fnt */; };
+		92AA4F65155506E70049CED2 /* Univers36.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AA4F63155506E50049CED2 /* Univers36.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +167,10 @@
 		925BB6EC15533D540011F9D2 /* ContainerBlobInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ContainerBlobInfo.mm; sourceTree = "<group>"; };
 		92AA4F4D155497900049CED2 /* Color.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Color.hpp; sourceTree = "<group>"; };
 		92AA4F4E155497900049CED2 /* Color.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Color.mm; sourceTree = "<group>"; };
+		92AA4F5E155503B80049CED2 /* Helvetica36.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Helvetica36.fnt; sourceTree = "<group>"; };
+		92AA4F5F155503B90049CED2 /* Helvetica36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Helvetica36.png; sourceTree = "<group>"; };
+		92AA4F62155506E50049CED2 /* Univers36.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Univers36.fnt; sourceTree = "<group>"; };
+		92AA4F63155506E50049CED2 /* Univers36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Univers36.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +244,10 @@
 				925BB6E715533A230011F9D2 /* DoubleSlider.h */,
 				925BB6EB15533D540011F9D2 /* ContainerBlobInfo.h */,
 				925BB6EC15533D540011F9D2 /* ContainerBlobInfo.mm */,
+				92AA4F62155506E50049CED2 /* Univers36.fnt */,
+				92AA4F63155506E50049CED2 /* Univers36.png */,
+				92AA4F5E155503B80049CED2 /* Helvetica36.fnt */,
+				92AA4F5F155503B90049CED2 /* Helvetica36.png */,
 				925BB67715532FE20011F9D2 /* Geometry */,
 				925BB69615532FE20011F9D2 /* Math */,
 				925BB69B15532FE20011F9D2 /* Utils */,
@@ -414,6 +426,10 @@
 				925BB6DE155330FC0011F9D2 /* AlloPano5Mbps.mov in Resources */,
 				925BB6DF155330FC0011F9D2 /* blobTest1.png in Resources */,
 				925BB6E0155330FC0011F9D2 /* testvid.m4v in Resources */,
+				92AA4F60155503BA0049CED2 /* Helvetica36.fnt in Resources */,
+				92AA4F61155503BA0049CED2 /* Helvetica36.png in Resources */,
+				92AA4F64155506E70049CED2 /* Univers36.fnt in Resources */,
+				92AA4F65155506E70049CED2 /* Univers36.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

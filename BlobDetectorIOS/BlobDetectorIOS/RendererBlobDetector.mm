@@ -42,6 +42,36 @@ void RendererBlobDetector::Initialize() {
   
   
   
+  
+/*  
+ // GetFont("CMUSerifUprightItalic60")->Bind(); {
+    GetFont("Univers36")->Bind(); {
+    //TextRect* t1 = new TextRect(GetFont("CMUSerifUprightItalic60"), "hello");
+    TextRect* t1 = new TextRect("@@!@#hello");
+    t1->SetTranslate(0.3,0,0);
+    t1->SetHeight(0.15);
+    t1->SetBackgroundColor(Color::Float(1.0,0,0,0.7));
+    t1->SetColor(Color::Float(0.0,0,1.0,1.0));
+      
+    AddGeom(t1);
+  }
+*/
+  /*
+  
+  Renderer::GetRenderer()->GetFont("Helvetica36")->Bind(); {
+    TextRect* t1 = new TextRect("hell....!!o");
+    t1->SetTranslate(0.15,0.5,0);
+    t1->SetHeight(0.5);
+    
+  //  t1->SetBackgroundColor(Color::Float(0.5));
+     t1->SetBackgroundColor(Color::Float(1.0,0,0,0.7));
+    t1->SetColor(Color::RGB(255,255,255,255));
+    
+    AddGeom(t1);
+  }
+*/
+  
+  
   /*
   int numSliders = 3;
   

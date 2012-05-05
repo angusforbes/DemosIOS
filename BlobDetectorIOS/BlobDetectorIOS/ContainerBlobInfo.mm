@@ -1,6 +1,6 @@
 #include "ContainerBlobInfo.h"
-
-
+#include "Renderer.hpp"
+#include "TextRect.hpp"
 
 
 ContainerBlobInfo::ContainerBlobInfo() {
@@ -9,8 +9,25 @@ ContainerBlobInfo::ContainerBlobInfo() {
 
 void ContainerBlobInfo::InstallWidgets() {
   
-  float sliderH = 0.9;
+  float sliderH = 0.7;
   float sliderInc = (1.0/6.0);
+  
+ 
+  
+  
+  Renderer::GetRenderer()->GetFont("Helvetica36")->Bind(); {
+    TextRect* t1 = new TextRect("hell....!!o");
+    t1->SetTranslate(0.15,0.2,0);
+    t1->SetHeight(0.2);
+    
+    t1->SetBackgroundColor(Color::Float(0.5));
+    t1->SetColor(Color::RGB(255,255,255,255));
+    
+    AddGeom(t1);
+  }
+
+  //text above y=0.7
+  //sliders below y=0.7
   
   doubleSliderRed = new DoubleSlider(this);
   doubleSliderRed->CenterAt(sliderInc * 0 + sliderInc/2.0, 0.5);
@@ -34,6 +51,7 @@ void ContainerBlobInfo::InstallWidgets() {
   AddGeom(doubleSliderBlue);
   
   pixelView = new Rectangle();
+  pixelView->drawBorder = true;
   pixelView->CenterAt(sliderInc * 3 + sliderInc/2.0, 0.5);
   pixelView->SetColor(Color::RGB(150));
   pixelView->SetScale(sliderInc*.75, 0.3);
@@ -96,7 +114,7 @@ void ContainerBlobInfo::Draw() {
 
   Container::Draw();
   
-  Rectangle::Draw();
+  //Rectangle::Draw();
   
   
 
