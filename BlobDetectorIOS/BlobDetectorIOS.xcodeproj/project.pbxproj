@@ -65,6 +65,8 @@
 		92AA4F61155503BA0049CED2 /* Helvetica36.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AA4F5F155503B90049CED2 /* Helvetica36.png */; };
 		92AA4F64155506E70049CED2 /* Univers36.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AA4F62155506E50049CED2 /* Univers36.fnt */; };
 		92AA4F65155506E70049CED2 /* Univers36.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AA4F63155506E50049CED2 /* Univers36.png */; };
+		92E4B2821556F41C00652A15 /* PixelList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92E4B2811556F41C00652A15 /* PixelList.mm */; };
+		92E4B2861557167D00652A15 /* BlobThreshold.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92E4B2851557167D00652A15 /* BlobThreshold.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,10 +125,8 @@
 		925BB69315532FE20011F9D2 /* TextureCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureCamera.hpp; sourceTree = "<group>"; };
 		925BB69415532FE20011F9D2 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		925BB69515532FE20011F9D2 /* Triangle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Triangle.hpp; sourceTree = "<group>"; };
-		925BB69715532FE20011F9D2 /* Matrix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix.hpp; sourceTree = "<group>"; };
 		925BB69815532FE20011F9D2 /* Ray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ray.cpp; sourceTree = "<group>"; };
 		925BB69915532FE20011F9D2 /* Ray.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ray.hpp; sourceTree = "<group>"; };
-		925BB69A15532FE20011F9D2 /* Vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
 		925BB69C15532FE20011F9D2 /* FBO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FBO.hpp; sourceTree = "<group>"; };
 		925BB69D15532FE20011F9D2 /* FBO.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FBO.mm; sourceTree = "<group>"; };
 		925BB69E15532FE20011F9D2 /* FontAtlas.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FontAtlas.hpp; sourceTree = "<group>"; };
@@ -171,6 +171,10 @@
 		92AA4F5F155503B90049CED2 /* Helvetica36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Helvetica36.png; sourceTree = "<group>"; };
 		92AA4F62155506E50049CED2 /* Univers36.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Univers36.fnt; sourceTree = "<group>"; };
 		92AA4F63155506E50049CED2 /* Univers36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Univers36.png; sourceTree = "<group>"; };
+		92E4B2811556F41C00652A15 /* PixelList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PixelList.mm; sourceTree = "<group>"; };
+		92E4B2841556F44500652A15 /* PixelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelList.h; sourceTree = "<group>"; };
+		92E4B2851557167D00652A15 /* BlobThreshold.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlobThreshold.cpp; sourceTree = "<group>"; };
+		92E4B2871557169000652A15 /* BlobThreshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlobThreshold.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,12 +240,16 @@
 				925BB6DD155330FC0011F9D2 /* testvid.m4v */,
 				925BB6D2155330CF0011F9D2 /* Blob.cpp */,
 				925BB6D3155330CF0011F9D2 /* Blob.h */,
+				92E4B2851557167D00652A15 /* BlobThreshold.cpp */,
+				92E4B2871557169000652A15 /* BlobThreshold.h */,
 				925BB6D4155330CF0011F9D2 /* RendererBlobDetector.h */,
 				925BB6D5155330CF0011F9D2 /* RendererBlobDetector.mm */,
 				925BB6D6155330CF0011F9D2 /* RectBlobDetect.h */,
 				925BB6D7155330CF0011F9D2 /* RectBlobDetect.mm */,
 				925BB6E515533A110011F9D2 /* DoubleSlider.mm */,
 				925BB6E715533A230011F9D2 /* DoubleSlider.h */,
+				92E4B2811556F41C00652A15 /* PixelList.mm */,
+				92E4B2841556F44500652A15 /* PixelList.h */,
 				925BB6EB15533D540011F9D2 /* ContainerBlobInfo.h */,
 				925BB6EC15533D540011F9D2 /* ContainerBlobInfo.mm */,
 				92AA4F62155506E50049CED2 /* Univers36.fnt */,
@@ -336,10 +344,8 @@
 		925BB69615532FE20011F9D2 /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				925BB69715532FE20011F9D2 /* Matrix.hpp */,
 				925BB69815532FE20011F9D2 /* Ray.cpp */,
 				925BB69915532FE20011F9D2 /* Ray.hpp */,
-				925BB69A15532FE20011F9D2 /* Vector.hpp */,
 			);
 			name = Math;
 			path = ../../../OpenGLRenderLibrary/Classes/Math;
@@ -480,6 +486,8 @@
 				925BB6EA15533CE20011F9D2 /* Container.cpp in Sources */,
 				925BB6ED15533D540011F9D2 /* ContainerBlobInfo.mm in Sources */,
 				92AA4F4F155497900049CED2 /* Color.mm in Sources */,
+				92E4B2821556F41C00652A15 /* PixelList.mm in Sources */,
+				92E4B2861557167D00652A15 /* BlobThreshold.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,10 +553,16 @@
 		925BB65B15532F410011F9D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Angus Forbes (29987D5ZWG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BlobDetectorIOS/BlobDetectorIOS-Prefix.pch";
 				INFOPLIST_FILE = "BlobDetectorIOS/BlobDetectorIOS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "23FC0A93-F33A-4510-9F9C-61F960C5C812";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -556,10 +570,16 @@
 		925BB65C15532F410011F9D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Angus Forbes (29987D5ZWG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BlobDetectorIOS/BlobDetectorIOS-Prefix.pch";
 				INFOPLIST_FILE = "BlobDetectorIOS/BlobDetectorIOS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "23FC0A93-F33A-4510-9F9C-61F960C5C812";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

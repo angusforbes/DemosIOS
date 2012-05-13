@@ -9,6 +9,8 @@
 #include "RectBlobDetect.h"
 #include "ContainerBlobInfo.h"
 
+//#include <glm/glm.hpp>
+
 float cameraZ;
 
 void RendererBlobDetector::Initialize() {    
@@ -42,34 +44,34 @@ void RendererBlobDetector::Initialize() {
   
   
   
-  
-/*  
- // GetFont("CMUSerifUprightItalic60")->Bind(); {
-    GetFont("Univers36")->Bind(); {
-    //TextRect* t1 = new TextRect(GetFont("CMUSerifUprightItalic60"), "hello");
-    TextRect* t1 = new TextRect("@@!@#hello");
-    t1->SetTranslate(0.3,0,0);
-    t1->SetHeight(0.15);
-    t1->SetBackgroundColor(Color::Float(1.0,0,0,0.7));
-    t1->SetColor(Color::Float(0.0,0,1.0,1.0));
-      
-    AddGeom(t1);
+  /*
+  Renderer::GetRenderer()->GetFont("Helvetica36")->Bind(); {
+    TextRect* t1 = new TextRect("rectttt");
+    t1->SetTranslate(0.0,0.0,0);
+    t1->SetHeight(0.5);
+    
+    t1->SetBackgroundColor(Color::RGB(0,0,255,255));
+    t1->SetColor(Color::RGB(255,255,255,255));
+    
+    rbd->AddGeom(t1);
   }
-*/
+  */
+
+
   /*
   
   Renderer::GetRenderer()->GetFont("Helvetica36")->Bind(); {
-    TextRect* t1 = new TextRect("hell....!!o");
-    t1->SetTranslate(0.15,0.5,0);
+    TextRect* t1 = new TextRect("toplevel");
+    t1->SetTranslate(0.0,0.0,0);
     t1->SetHeight(0.5);
     
   //  t1->SetBackgroundColor(Color::Float(0.5));
-     t1->SetBackgroundColor(Color::Float(1.0,0,0,0.7));
+     t1->SetBackgroundColor(Color::RGB(255,0,0,200));
     t1->SetColor(Color::RGB(255,255,255,255));
     
     AddGeom(t1);
   }
-*/
+   */
   
   
   /*
@@ -100,9 +102,14 @@ void RendererBlobDetector::Draw() {
 void RendererBlobDetector::HandleTouchBegan(ivec2 mouse) {
   
   ivec2 um = ivec2(mouse.x, height - mouse.y);
+  
   printf("height = %d, mouse then um\n", height);
-  mouse.Print("mouse = ");
-  um.Print("adjusted mouse = ");
+  cout << glm::to_string(mouse) << "\n";
+  cout << glm::to_string(um) << "\n";
+  
+//  Utils::PrintVec("orig mouse = ", mouse); 
+//  Utils::PrintVec("adju mouse = ", um); 
+  //  um.Print("adjusted mouse = ");
   
   vector<Geom*> gcwp = GetGeomsContainingWindowPoint(mouse); //may need to use (um) in real device
   
@@ -110,8 +117,8 @@ void RendererBlobDetector::HandleTouchBegan(ivec2 mouse) {
   if (gcwp.size() > 0) {
     selectedGeom = gcwp[gcwp.size() - 1]; //this will return one of the more deeply nested, need to do something smarter to get smallest or closest to camera.
     
-    cout << "geom at " << selectedGeom->GetTranslate().String() << " contains mouse point!\n";
-    selectedGeom->HandleTouchBegan(mouse);
+    cout << "geom at " << glm::to_string(selectedGeom->GetTranslate()) << " contains mouse point!\n";
+    selectedGeom->HandleTouchBegan(um);
   
   } else {
     selectedGeom = NULL;
@@ -125,7 +132,9 @@ void RendererBlobDetector::HandleTouchEnded(ivec2 mouse) {
 } 
 void RendererBlobDetector::HandleTouchMoved(ivec2 prevMouse, ivec2 mouse) {
   if (selectedGeom != NULL) {
-    selectedGeom->HandleTouchMoved(prevMouse, mouse);
+    ivec2 um = ivec2(mouse.x, height - mouse.y);
+
+    selectedGeom->HandleTouchMoved(prevMouse, um);
   }
 }
 

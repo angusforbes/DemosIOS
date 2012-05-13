@@ -14,6 +14,16 @@
 #ifndef OGRL_DoubleSlider
 #define OGRL_DoubleSlider
 
+#define GLM_SWIZZLE
+#include <glm/glm.hpp>
+using glm::mat4;
+
+using glm::ivec2;
+using glm::vec2;
+using glm::ivec4;
+using std::list;
+
+
 class DoubleSlider : public Rectangle { 
   
 public:

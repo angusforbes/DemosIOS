@@ -4,9 +4,11 @@
 #include "TextRect.hpp"
 
 
-
+//#include <glm/glm.hpp>
 
 void TextDemo::Initialize() {
+  
+   
   
   //you can place a text object directly in the scene graph...
  

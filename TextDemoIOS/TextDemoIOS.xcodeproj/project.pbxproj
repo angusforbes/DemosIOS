@@ -109,10 +109,8 @@
 		92CD0AE6153E024300833CFA /* Sphere.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Sphere.hpp; sourceTree = "<group>"; };
 		92CD0AE7153E024300833CFA /* TextureCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureCamera.cpp; sourceTree = "<group>"; };
 		92CD0AE8153E024300833CFA /* TextureCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureCamera.hpp; sourceTree = "<group>"; };
-		92CD0AEA153E024300833CFA /* Matrix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix.hpp; sourceTree = "<group>"; };
 		92CD0AEB153E024300833CFA /* Ray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ray.cpp; sourceTree = "<group>"; };
 		92CD0AEC153E024300833CFA /* Ray.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ray.hpp; sourceTree = "<group>"; };
-		92CD0AED153E024300833CFA /* Vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
 		92CD0AEF153E024300833CFA /* FBO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FBO.hpp; sourceTree = "<group>"; };
 		92CD0AF0153E024300833CFA /* FBO.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FBO.mm; sourceTree = "<group>"; };
 		92CD0AF1153E024300833CFA /* FontAtlas.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FontAtlas.hpp; sourceTree = "<group>"; };
@@ -289,10 +287,8 @@
 		92CD0AE9153E024300833CFA /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				92CD0AEA153E024300833CFA /* Matrix.hpp */,
 				92CD0AEB153E024300833CFA /* Ray.cpp */,
 				92CD0AEC153E024300833CFA /* Ray.hpp */,
-				92CD0AED153E024300833CFA /* Vector.hpp */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -527,10 +523,13 @@
 		92CD0AC5153E018F00833CFA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TextDemoIOS/TextDemoIOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "TextDemoIOS/TextDemoIOS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/local/include/;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -538,10 +537,13 @@
 		92CD0AC6153E018F00833CFA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TextDemoIOS/TextDemoIOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "TextDemoIOS/TextDemoIOS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/local/include/;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
